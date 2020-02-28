@@ -8,10 +8,10 @@
   <body>
     
     <p>
-      基本类型值存在栈中，当赋值给一个变量的时候，变量存的是值本身；
+      基本类型值存在栈中，当赋值给一个变量的时候，变量存的是值本身；<br>
       引用类型的值存在堆中（堆有个地址），当赋值给一个变量的时候，变量存的是堆的内存地址
     </p>
-    <p>父组件给子组件传值，如果只传引用的化，子组件修改内部属性可能影响父组件</p>
+    <!-- <p>父组件给子组件传值，如果只传引用的化，子组件修改内部属性可能影响父组件</p> -->
     
     <hr>
 
@@ -24,7 +24,7 @@
       当遇到引用类型时，会去堆内存开辟一个新的区域 存储对象，所以是和原始对象完全独立开来的
     </p>
 
-
+    <hr>
     <p>
       首先要分清楚js两大类型：基本类型（number string boolean null undefined symbol bigint）和引用类型
     </p>
@@ -40,6 +40,12 @@
       Object.prototype.toString.call(true) 这个是返回浏览器引擎内部的一个值（传的是什么类型 浏览器引擎已经给定义好了，你调这个方法就返回给你类型标识），是写在ECMA标准里面的，最准
     </p>
     <script>
+      // 业务中最实用
+      let co = JSON.parse(JSON.stringify(obj));//但是 正则 拷贝函数 循环引用等都没有体现
+
+
+
+      //简单版================================================================
       // 值 的拷贝，引用值 的拷贝问题
 
       Object.prototype.num = 3;
@@ -118,6 +124,35 @@
       person2.son.first = "zzz";
       person2.son.children.name = "lllllllll";
       console.log(person1, person2);
+
+
+
+
+      //周密版============================================================= 
+      //测试用例
+      function Obj(){
+        this.func = fucntion () {
+          alert(1);
+        }
+        this.obj = { a: 1 };
+        this.arr = [1, 2,3]
+        this.und = undefined;
+        this.reg = /123/;
+        this.date = new Date(0);
+        this.NaN = NaN;
+        this.infinity = Infinity;
+        this.sym = Symbol(1);
+        this.set = new Set([1,2,3])
+        this.map = new Map([['a',1],['b',9]])
+      }
+      let obj1 = new Obj();
+      Object.defineProperty(obj1, 'innumerable', {
+        enumerable:false,
+        value: "innumerable"
+      })
+      console.log(obj1)
+      let str = JSON.stringify(obj1)
+      let obj2 = JSON.parse(str)
     </script>
   </body>
 </html>
