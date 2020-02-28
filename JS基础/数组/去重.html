@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var a = [1, 2, 1, 5, "1", 2, 4, 5];
+
+      //1. Set ==================================
+      var s = new Set(a);
+      // console.log(s)
+      // var new1 = Array.from(s)
+      // console.log(new1)
+      var new2 = [...s];
+      // console.log(new2);
+
+      //2. reduce ===============================
+      var new3 = a.sort((a, b)=>a-b).reduce((prev, item, arr)=>{
+        if(prev.length ===0 || prev[prev.length -1]!==item){
+          prev.push(item);
+        }
+        return prev
+      }, [])
+      // console.log(new3);
+
+      //3. includes /indexOf ====================
+      var new4 = []
+      a.forEach((item, index, arr)=>{
+        // 遍历原数组的每一项的时候，判断新数组中有没有，没有再放入
+        if(!new4.includes(item)){
+        //if(new4.indexOf(item)===-1)
+          new4.push(item)
+        }
+      })
+      // console.log(new4)
+      //4. 对象key不能重复 ========================
+
+      //5. 双层循环 ==============================
+      var new6 = [];
+      // var isRepeat = false;
+      // for(var i= 0;i<a.length;i++){
+      //   isRepeat = false;
+      //   for(var j = i+1; j<a.length; j++){
+      //     if(a[i]==a[j]) {//数组当前项 和 后面每一项比较，如果后面都没有 和当前项相等的，就加入新数组
+      //       isRepeat = true
+      //       break
+      //     }
+      //   }
+      //   if(!isRepeat){
+      //     new6.push(a[i])
+      //   }
+      // }
+      // console.log(new6)
+
+      var new7 = [];
+      var isRepeat = false;
+      for(var i= 0;i<a.length;i++){
+        isRepeat = false;
+        for(var j = 0; j<new7.length; j++){
+          if(new7[j]===a[i]) {//
+            isRepeat = true
+            break
+          }
+        }
+        if(!isRepeat){
+          new7.push(a[i])
+        }
+      }
+      console.log(new7)
+
+    </script>
+  </body>
+</html>
