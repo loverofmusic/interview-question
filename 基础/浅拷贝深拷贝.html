@@ -6,19 +6,37 @@
     <title>Document</title>
   </head>
   <body>
-    <p>
-      首先要分清楚js两大类型：基本类型（number string boolean null undefined symbol bigint）和引用类型
-    </p>
+    
     <p>
       基本类型值存在栈中，当赋值给一个变量的时候，变量存的是值本身；
       引用类型的值存在堆中（堆有个地址），当赋值给一个变量的时候，变量存的是堆的内存地址
     </p>
     <p>父组件给子组件传值，如果只传引用的化，子组件修改内部属性可能影响父组件</p>
-    <p>instanceof 判断的是 右边构造函数的原型 在不在 左边实例对象的原型链上</p>
+    
+    <hr>
+
+    <h5>浅拷贝</h5>
+    <p>
+      首先都是要创建一个新对象，然后遍历原始对象，遇到属性值是基本类型，就拷贝基本类型的值，遇到属性值是引用类型，就拷贝内存地址，所以当一个对象改变了这个内存地址指向的堆内存里面的数据时，另一个对象也会受影响
+    </p>
+    <h5>深拷贝</h5>
+    <p>
+      当遇到引用类型时，会去堆内存开辟一个新的区域 存储对象，所以是和原始对象完全独立开来的
+    </p>
+
+
+    <p>
+      首先要分清楚js两大类型：基本类型（number string boolean null undefined symbol bigint）和引用类型
+    </p>
+
+    <hr>
+
     <p>判断类型：</p>
     <p>
       typeof 只能判断基本类型，引用类型只能判断出 function object， Array Set Map RegExp Date 都不行。。。。；<br>
-      instanceof 和原型链有关，原型链可以修改，所以也不靠谱；<br>
+
+      instanceof 和原型链有关，原型链可以修改，所以也不靠谱；instanceof 判断的是 右边构造函数的原型 在不在 左边实例对象的原型链上<br>
+
       Object.prototype.toString.call(true) 这个是返回浏览器引擎内部的一个值（传的是什么类型 浏览器引擎已经给定义好了，你调这个方法就返回给你类型标识），是写在ECMA标准里面的，最准
     </p>
     <script>
