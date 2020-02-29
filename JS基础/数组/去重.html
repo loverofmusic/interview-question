@@ -7,7 +7,7 @@
   </head>
   <body>
     <script>
-      var a = [1, 2, 1, 5, "1", 2, 4, 5];
+      var a = [1, 2, 1, 5, "1", 2, 4, 5, "a", "a"];
 
       //1. Set ==================================
       var s = new Set(a);
@@ -37,7 +37,15 @@
       })
       // console.log(new4)
       //4. 对象key不能重复 ========================
-
+      var new5 = [];
+      temp = {}
+      for(var k = 0; k < a.length; k++){
+        if(!temp.hasOwnProperty(a[k])){
+          temp[a[k]] = a[k]
+          new5.push(a[k])
+        }
+      }
+      console.log(new5)
       //5. 双层循环 ==============================
       var new6 = [];
       // var isRepeat = false;
@@ -69,7 +77,7 @@
           new7.push(a[i])
         }
       }
-      console.log(new7)
+      // console.log(new7)
 
     </script>
   </body>
