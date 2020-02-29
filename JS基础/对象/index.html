@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>new一个对象这个过程中发生了什么</h1>
+  1.开辟一块内存空间用于存储这个新对象
+  2.将this设置为当前对象
+  3.为这个对象设置属性（让__proto__属性值 = 构造函数的prototype属性值：
+  这样就能通过 隐式原型链 找到构造函数原型对象了）和方法
+  4.返回这个对象
+</body>
+</html>
