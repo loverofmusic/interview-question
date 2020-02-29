@@ -6,11 +6,38 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>new一个对象这个过程中发生了什么</h1>
+
+  <h1>【创建】一个对象有哪几种方法，区别</h1>
+
+  <h1>【new】一个对象这个过程中发生了什么</h1>
   1.开辟一块内存空间用于存储这个新对象
   2.将this设置为当前对象
   3.为这个对象设置属性（让__proto__属性值 = 构造函数的prototype属性值：
   这样就能通过 隐式原型链 找到构造函数原型对象了）和方法
   4.返回这个对象
+
+  <h1>【遍历】一个对象的方法有哪些？for in 能否遍历出原型对象 遍历一个对象里面所有key值</h1>
+  1.获取key值：Object.keys(obj) 得到数组
+  2.获取value值：Object.values(obj)
+  3.for in。。。。。。。。。。。。。。
+
+      1.for ... in 循环遍历对象自身的和继承的可枚举属性(不含Symbol属性).
+
+      2.Obejct.keys(obj),返回一个数组,包括对象自身的(不含继承的)所有可枚举属性(不含Symbol属性).
+      
+      3.Object.getOwnPropertyNames(obj),返回一个数组,包含对象自身的所有属性(不含Symbol属性,但是包括不可枚举属性).
+      
+      4.Object.getOwnPropertySymbols(obj),返回一个数组,包含对象自身的所有Symbol属性.
+      
+      5.Reflect.ownKeys(obj),返回一个数组,包含对象自身的所有属性,不管属性名是Symbol或字符串,也不管是否可枚举.
+      
+      6.Reflect.enumerate(obj),返回一个Iterator对象,遍历对象自身的和继承的所有可枚举属性(不含Symbol属性),与for ... in 循环相同.
+
+  <h1>对象【转成】数组有哪些方法</h1>
+
+  <h1>【合并】对象</h1>
+
+  <h1>Object.defineProperty上面的一些方法 Object.hasOwnProperty proxy</h1>
+
 </body>
 </html>

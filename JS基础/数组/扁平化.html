@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>扁平化数组</h1>
+  1.flat()
+  2.reduce()
+  使用 reduce 与 concat
+
+  3.递归
+
+  <script>
+    var arr = [1, 2, [3, 4]];
+
+    // 展开一层数组===============================================================
+
+    // arr.flat();
+    // 等效于
+    arr.reduce((acc, val) =>{ 
+      acc = acc.concat(val)
+      debugger
+      return acc
+    }, []);
+    // 等效于
+    // arr.reduce((acc, val) => acc.concat(val), []);
+    // [1, 2, 3, 4]
+
+    // 使用扩展运算符 ...
+    const flattened = arr => [].concat(...arr);
+
+
+    //展开无数层=============================================================== 
+    const deepFlatten = arr => [].concat(...arr.map(v=>Array.isArray(v)?deepFlatten(v):v))
+
+  </script>
+  
+</body>
+</html>

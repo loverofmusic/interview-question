@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>替代for 循环的一些东西 </h1>
+  现在在javascript中几乎所有的for循环都可以被
+  map,filter,find,some,any,forEach等函数式编程取代
+  1.forEach() 
+      array.forEach(function(currentValue, index, arr), thisValue)
+  2.map() 返回一个新数组
+      array.map(function(currentValue,index,arr), thisValue)
+  3.
+
+  <h1>判读是不是数组</h1>
+
+  1.instanceof
+    var ary = [1,23,4];
+    console.log(ary  instanceof Array) //true; 
+
+  2.原型链方法
+  var ary = [1,23,4]; 
+  console.log(ary.__proto__.constructor==Array); //true  
+  console.log(ary.constructor==Array) //true 这两段代码是一样的
+
+  3.通用的方法
+    var o = [1,23,4];
+    Object.prototype.toString.call(o)== '[object Array]'
+
+  4.Array.isArray()
+  <script>
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const obj = {
+        a00001: "sfhhf",
+        b66668: {
+          abv: 6778
+        }
+      };
+      console.log(Object.entries(obj));
+      const arr = [];
+      for (let [k, v] of Object.entries(obj)) {
+        console.log(k, v);
+        arr.push({
+          id: k,
+          value: v
+        });
+      }
+
+      // for(let [k, v] of Object.entries(obj)){
+      //   console.log([k, v])
+      // }
+      let obj2 = { '未完成': 5, '已完成': 8, '待确认': 4, '已取消': 6 };
+      var arr2 = [];
+      for (let i in obj2) {
+        let o = {};
+        o[i] = obj2[i];
+        arr2.push(o);
+      }
+      console.log(arr2);
+    </script>
+  </body>
+</html>
