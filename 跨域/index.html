@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  1.jsonp
+
+    原理：利用script这类标签不受跨域的限制的特性
+
+    过程： 先在客户端创建一个script标签，
+          然后设置它的src属性等于 服务端提供的接口地址 并且接口地址后面加上请求参数的形式?callback=func 
+          这个func是客户端定义的一个全局函数，这个函数将作为回调函数传给服务端 
+
+          服务端接收客户端请求，callback=func 
+          1.准备数据 data={...}
+          2.给客户端返回一个类似于执行这个func函数的一个字符串数据
+
+          浏览器接收到这个字符串，会将其作为js表达式执行
+
+
+    问题：所有资源文件请求 只能是get请求，get是暴露在url中的，不安全
+
+    h5和ios通信，除了jsbidge，还有一种伪URL方式，我们在h5里面通过location.href 发一个伪url协议，
+    同时把我们h5里面的js通过callback方式传过去，ios拦截到这个请求，通过解析这个协议发现是商量好的，会把我们穿过去的函数给执行
+  
+  2.CORS跨域资源共享
+
+    原理：设置请求头
+    过程： 发送ajax/fetch请求
+          服务端（设置相关头信息）如果用node写的化，可以使用一个中间件，
+          通过设置响应头 来配置允许跨域的源，还可以设置是不是允许携带cookie，
+          res.header("access-cross-allow-origin", "http://....") 
+    问题： 这个地址要么只能写一个，要么写*，就是所有但同时不能携带cookie
+
+
+  3.http proxy
+
+    原理：配置webpack，webpack-dev-server 代理
+    
+</body>
+</html>
