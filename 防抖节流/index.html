@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  1. debounce 防抖：
+      对事件处理函数进行延时操作，在没到延时时间之前，
+      如果再次触发事件，则清除上一次的延时定时器，重新延时，直到触发操作结束再执行。
+
+      执行debounce函数之后会返回一个新函数，通过闭包的形式，维护一个变量timeId，
+      每次执行该函数会结束之前的延时操作，重新执行setTimeout，
+      也就实现了 在指定时间内多次触发同一事件，会合并执行一次
+
+  2. throttle 节流：
+      触发事件之后，在设定的时间内无法再连续调用，只有等过了设定的时间间隔后，才能执行下一次调用
+
+  <script>
+    
+
+  </script>
+</body>
+</html>
